@@ -23,7 +23,7 @@ class Wp_Noticeboard_Posts {
 	}
 
 	// Register Custom Post Type
-	function custom_post_type() {
+	function wp_noticeboard_post_type() {
 
 		$labels = array(
 			'name'                  => _x( 'Noticeboard', 'Noticeboard', TEXTDOMAIN ),

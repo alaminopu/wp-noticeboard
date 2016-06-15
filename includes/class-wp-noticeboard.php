@@ -160,7 +160,7 @@ class Wp_Noticeboard {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 		$noticeboard_posts = new Wp_Noticeboard_Posts();
-		$this->loader->add_action('init', $noticeboard_posts, 'custom_post_type');
+		$this->loader->add_action('init', $noticeboard_posts, 'wp_noticeboard_post_type');
 
 	}
 
