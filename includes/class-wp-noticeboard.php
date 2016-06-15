@@ -161,6 +161,7 @@ class Wp_Noticeboard {
 
 		$noticeboard_posts = new Wp_Noticeboard_Posts();
 		$this->loader->add_action('init', $noticeboard_posts, 'wp_noticeboard_post_type');
+		$this->loader->add_action('init', $noticeboard_posts, 'wp_noticeboard_register_shortcode');
 
 	}
 

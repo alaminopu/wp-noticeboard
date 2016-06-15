@@ -19,11 +19,24 @@
  */
 class Wp_Noticeboard_Posts {
 
-	function __construct(){
+	/**
+	 * Define the core funtionality of POST related stuff
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 */
+	public function __construct(){
+
 	}
 
-	// Register Custom Post Type
-	function wp_noticeboard_post_type() {
+	/**
+	 * Register custom post type
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public function wp_noticeboard_post_type() {
 
 		$labels = array(
 			'name'                  => _x( 'Noticeboard', 'Noticeboard', TEXTDOMAIN ),
@@ -70,11 +83,66 @@ class Wp_Noticeboard_Posts {
 			'exclude_from_search'   => false,
 			'publicly_queryable'    => true,
 			'capability_type'       => 'post',
-			'rewrite' 				=> array( 'slug' => 'wp-noticeboard'),
+			'rewrite' 				=> array('slug' => 'wp-noticeboard'),
 		);
 		register_post_type( 'wp_noticeboard', $args );
 
 	}
+
+	/**
+	 * Display shortcode content
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public function wp_noticeboard_shortcode( $atts ) {
+
+		// Attributes
+		$atts = shortcode_atts(
+			array(
+				'number' => '5',
+				'category' => '',
+			),
+			$atts,
+			'wp-noticeboard'
+		);
+
+		// query 
+		$return_string = '<ul class="wp-noticeboard-posts">';
+		query_posts(
+			array(
+				'orderby' => 'date', 
+				'order' => 'DESC' ,
+				'post_type'=> 'wp_noticeboard',
+				'category_name' => $atts['category'],
+				'showposts' => $atts['number'])
+		);
+
+		if (have_posts()) :
+			while (have_posts()) : the_post();
+				$return_string .= '<li><a href="'.get_permalink().'">'.get_the_title().'</a>'. '<span class="date">'. get_the_date() .'</span></li>';
+			endwhile;
+		endif;
+		$return_string .= '</ul>';
+
+		wp_reset_query();
+		return $return_string;
+
+	}
+
+
+	/**
+	 * Register shortcode
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public function wp_noticeboard_register_shortcode(){
+		add_shortcode( 'wp-noticeboard', array(&$this , 'wp_noticeboard_shortcode'));
+	}
+	
 
 
 }

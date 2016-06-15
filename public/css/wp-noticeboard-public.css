@@ -2,3 +2,30 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+ .wp-noticeboard-posts{
+ 	overflow: hidden;
+ 	margin: 0;
+ 	padding:10px;
+ }
+
+ .wp-noticeboard-posts li{
+ 	list-style-type: none;
+ 	margin-top: 10px;
+ }
+
+ .wp-noticeboard-posts li a{
+ 	text-decoration: none;
+ 	cursor: pointer;
+ 	border-bottom: none;
+ }
+
+ .wp-noticeboard-posts li a:hover{
+ 	text-decoration: underline;
+ }
+
+ .wp-noticeboard-posts li span.date{
+ 	display: block;
+ 	margin-top: 5px;
+ 	font-style: italic;
+ }
