@@ -30,6 +30,10 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+/* Domain plugin constant */
+define('TEXTDOMAIN', 'Wp_Noticeboard');
+
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wp-noticeboard-activator.php

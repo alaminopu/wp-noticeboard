@@ -1,10 +1,10 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
+Contributors: (alaminopu)
 Donate link: http://alaminopu.me
-Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+Tags: Noticeboard, Notice, wp-noticeboard
+Requires at least: 4.0.0
+Tested up to: 4.5.2
+Stable tag: 4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
