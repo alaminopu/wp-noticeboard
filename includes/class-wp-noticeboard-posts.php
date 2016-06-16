@@ -65,6 +65,13 @@ class Wp_Noticeboard_Posts {
 			'items_list_navigation' => __( 'Notice list navigation', TEXTDOMAIN ),
 			'filter_items_list'     => __( 'Filter Notice list', TEXTDOMAIN ),
 		);
+		$rewrite = array(
+			'slug'                  => 'wp-noticeboard',
+			'with_front'            => true,
+			'pages'                 => true,
+			'feeds'                 => true,
+		);
+
 		$args = array(
 			'label'                 => __( 'Noticeboard', TEXTDOMAIN ),
 			'description'           => __( 'Create admin notice', TEXTDOMAIN ),
@@ -82,11 +89,27 @@ class Wp_Noticeboard_Posts {
 			'has_archive'           => true,		
 			'exclude_from_search'   => false,
 			'publicly_queryable'    => true,
+			'rewrite' 				=> $rewrite,
 			'capability_type'       => 'post',
-			'rewrite' 				=> array('slug' => 'wp-noticeboard'),
 		);
 		register_post_type( 'wp_noticeboard', $args );
 
+	}
+
+	/**
+	 * Adding custom post type to taxonomy
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public function wp_noticeboard_add_custom_types_to_tax( $query ) {
+		if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+			
+			$post_types =  array( 'post', 'wp_noticeboard');
+
+			$query->set( 'post_type', $post_types );
+			return $query;
+		}
 	}
 
 	/**
