@@ -162,6 +162,7 @@ class Wp_Noticeboard {
 		$noticeboard_posts = new Wp_Noticeboard_Posts();
 		$this->loader->add_action('init', $noticeboard_posts, 'wp_noticeboard_post_type');
 		$this->loader->add_filter( 'pre_get_posts', $noticeboard_posts, 'wp_noticeboard_add_custom_types_to_tax');
+		$this->loader->add_filter( 'template_include', $noticeboard_posts, 'wp_noticeboard_template_function', 1 );
 		$this->loader->add_action('init', $noticeboard_posts, 'wp_noticeboard_register_shortcode');
 
 	}

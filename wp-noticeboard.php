@@ -31,7 +31,8 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /* Domain plugin constant */
-define('TEXTDOMAIN', 'Wp_Noticeboard');
+define('WP_NOTICEBOARD_TEXTDOMAIN', 'Wp_Noticeboard');
+define('WP_NOTICEBOARD_PLUGIN_PATH', plugin_dir_path( __FILE__ ));
 
 
 /**
