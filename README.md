@@ -4,7 +4,7 @@ A plugin to display notice across your WordPress site.
 
 ## Installation 
 
-Installation is very simple like other WP plugin. 
+Installation is pretty much same as installing other WP plugin. 
 
 
 ## Using Shortcode
@@ -18,6 +18,7 @@ _**Example: **_
 ## Shortcode Arguments
 
 There are two arguments created for the shortcode. 
+
 1. number ( To show number of post you want to display )
 2. category ( Which category post you want to display )
 
